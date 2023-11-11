@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
                         <Typography component={'div'} color='primary' sx={{ textAlign: 'center', position: "relative", top: '50px', fontSize: "80px", fontWeight: 'bold' }}>
                             Welcome To Nevermore's Blog!
                         </Typography>
-                        <Box position={'relative'} top={'80px'} sx={{ backgroundColor:'#1565c0'}}>    
+                        <Box position={'relative'} top={'80px'} sx={{ backgroundColor:'#1565c0'}} marginLeft={'30%'} width={'40%'} borderRadius={'10px'} marginRight={'30%'}>    
                             <Typography color={'white'} sx={{textAlign: 'center',fontSize: "40px", fontWeight: 'bold' }}>
                                 {sentence}
                             </Typography>
