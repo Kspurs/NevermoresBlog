@@ -6,9 +6,9 @@ import theme from '../components/theme';
 const Appbar = () => {
     return (
     <ThemeProvider theme={theme}>
-        <AppBar position="fixed">
-            <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <AppBar sx={{   }}>
+            <Toolbar sx={{ }}>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 ,fontSize:'14px'}}>
                     Nevermore's Blog
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
