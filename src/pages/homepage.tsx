@@ -7,6 +7,7 @@ import { blue } from '@mui/material/colors';
 import ChessPiece from '../components/chesspiece';
 import { eventNames } from 'process';
 import { navigate } from 'gatsby';
+import { time } from 'console';
 const HomePage: React.FC = () => {
     var sentence='Type CHECK To Continue';
     const [idx,setIdx]=useState(0);
@@ -20,16 +21,17 @@ const HomePage: React.FC = () => {
             }
         }
         document.addEventListener('keydown', handleKeyDown);
-    return ()=>document.removeEventListener('keydown',handleKeyDown);
+        
+    
+        return ()=>{document.removeEventListener('keydown',handleKeyDown);}
 },[idx])
     console.log(idx);
+
     if(idx==5)
     {   
         sentence='Enjoy!🎉🎉🎉'
         console.log('first');
-        setInterval(()=>navigate('/'
-        ),2000);
-    }
+      setTimeout(()=>{navigate('/browse')},2000)};
     return (
         <div style={{ display: 'grid' }}>
             <StaticImage style={{ gridArea: "1/1", width: '100vw' }} src='../images/pexels-sebastian-voortman-411207.jpg' alt=''></StaticImage>
