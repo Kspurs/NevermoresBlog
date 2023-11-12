@@ -28,7 +28,7 @@ const Appbar:React.FC<AppbarProps>= ({location}) => {
                                 <Button  sx={{width:'100%',borderRadius:'20px'}} onClick={()=>{
                                     navigate(page.link);
                                 }}>
-                                    <Typography key={page.name} color={location===page.link?"success":"primary"} fontWeight={'500'}>
+                                    <Typography key={page.name} sx={{color:location===page.link? '#0288d1':'primary'}} fontWeight={'500'}>
                                         {page.name}
                                     </Typography>
                                 </Button>
