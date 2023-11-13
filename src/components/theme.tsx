@@ -8,6 +8,9 @@ const theme = createTheme({
         },
         secondary: {
             main: '#ffffff',
+        },
+        info:{
+            main:blue[500],
         }
     },
     typography: {

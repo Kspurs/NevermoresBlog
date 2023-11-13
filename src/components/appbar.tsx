@@ -14,7 +14,7 @@ const Appbar:React.FC<AppbarProps>= ({location}) => {
     
     return (
     <ThemeProvider theme={theme}>
-        <AppBar color='secondary' sx={{}}>
+        <AppBar color='secondary' sx={{position:'sticky'}} elevation={1}>
             <Toolbar sx={{ }}>
                 <Box display={'flex'}>
                 <Box display={'flex'} width={'min-content'}>
@@ -22,13 +22,13 @@ const Appbar:React.FC<AppbarProps>= ({location}) => {
 
                         <Typography sx={{fontWeight:'700',position:'relative',top:'5px'}}>Nevermore</Typography>
                 </Box>
-                    <Box display={'flex'} marginLeft={'30px'} justifyContent={'space-evenly'} maxWidth={'600px'}>
+                    <Box display={'flex'} marginLeft={'30px'} justifyContent={'space-around'} maxWidth={'400px'}>
                         {pages.map((page)=>(
-                            <Box sx={{backgroundColor:location===page.link?'#b3e5fc':'#ffffff', textAlign:'center',borderRadius:'20px'}}>
-                                <Button  sx={{width:'100%',borderRadius:'20px'}} onClick={()=>{
+                            <Box key={page.name} width={'min-content'} sx={{backgroundColor:location===page.link?'#b3e5fc':'#ffffff', textAlign:'center',borderRadius:'20px',marginRight:'10px'}}>
+                                <Button  sx={{width:'100%',borderRadius:'20px',height:'100%'}} onClick={()=>{
                                     navigate(page.link);
                                 }}>
-                                    <Typography key={page.name} sx={{color:location===page.link? '#0288d1':'primary'}} fontWeight={'500'}>
+                                    <Typography key={page.name} sx={{color:location===page.link? '#0288d1':'primary'}} fontWeight={'600'} fontSize={'15px'}>
                                         {page.name}
                                     </Typography>
                                 </Button>

@@ -17,7 +17,13 @@ const config: GatsbyConfig = {
   //     "spaceId": "iwuocb8gknbj"
   //   }
   // }, 
-  "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp"]
+  "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp",{
+    resolve:'gatsby-source-filesystem',
+    options:{
+      name:`blog`,
+      path:`${__dirname}/content/blog`
+    }
+  },'gatsby-plugin-mdx']
 };
 
 export default config;
