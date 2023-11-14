@@ -3,16 +3,16 @@ import React from "react";
 import theme from "./theme";
 import { StaticImage } from "gatsby-plugin-image";
 import PersonalCard from "./personalcard";
-interface BlogcardProps{
+interface BlogEntryProps{
     title:string;
     date:string;
     description:string;
     tag:string[];
     author:string;
 }
-const Blogcard:React.FC<BlogcardProps>=({title,date,description,tag,author})=>{ 
+const Blogentry:React.FC<BlogEntryProps>=({title,date,description,tag,author})=>{ 
     return (
-        <Paper elevation={1} sx={{padding:'20px' ,width:'500px',borderRadius:'10px','&:hover':{boxShadow:8}}}>
+        <Paper elevation={0} sx={{width:'700px',borderRadius:'10px',border:'none'}}>
             <ThemeProvider theme={{theme}}>
             
                 <Box display='flex' >
@@ -40,7 +40,5 @@ const Blogcard:React.FC<BlogcardProps>=({title,date,description,tag,author})=>{
         </Paper>    
     )
 }
-const Hovercard=styled(Blogcard)<BlogcardProps>(({theme})=>({
-    
-}));
-export default Hovercard;
+
+export default Blogentry;
