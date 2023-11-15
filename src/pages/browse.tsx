@@ -37,12 +37,9 @@ const Browse: React.FC<PageProps<queryData>> = ({ path, data }) => {
                         <Box display={'flex'} position={'relative'} top={'40px'} justifyContent={"space-around"} paddingLeft={'150px'} paddingRight={'150px'}>
 
                             {
-                                data.allMdx.nodes.map((item) => (
+                                data.allMdx.nodes.slice(0,2).map((item) => (
                                     <Hovercard key={item.frontmatter.title} title={item.frontmatter.title} date={item.frontmatter.date} description={item.frontmatter.slug} tag={['Python', 'CPP']} author="Nevermore"></Hovercard>))}
                         
-                            {
-                                data.allMdx.nodes.map((item) => (
-                                    <Hovercard key={item.frontmatter.title} title={item.frontmatter.title} date={item.frontmatter.date} description={item.frontmatter.slug} tag={['Python', 'CPP']} author="Nevermore"></Hovercard>))}
                                     </Box>
                     </Box>
                 </Box>
@@ -51,8 +48,8 @@ const Browse: React.FC<PageProps<queryData>> = ({ path, data }) => {
                         <Typography fontWeight={700} marginBottom={'20px'}>Latest Posts</Typography>
                     
                             {
-                                data.allMdx.nodes.map((item) => (
-                                <Box key={item.frontmatter.title}>
+                                data.allMdx.nodes.slice(0,2).map((item) => (
+                                <Box key={item.frontmatter.title} marginTop={'10px'}>
                                     
                                         <Blogentry title={item.frontmatter.title} date={item.frontmatter.date} description={item.frontmatter.slug} tag={['Python', 'CPP']} author="Nevermore"></Blogentry>
                                         <Divider></Divider>
@@ -64,6 +61,18 @@ const Browse: React.FC<PageProps<queryData>> = ({ path, data }) => {
                                 }
                         </Box>
                     <PersonalCard></PersonalCard>
+                </Box>
+                <Box display={'grid'}>
+                    <StaticImage src='../images/bottomimage.jpg' alt="" style={{height:'500px' ,gridArea:'1/1'}}></StaticImage>
+                    <Box gridArea={'1/1'} padding={'50px'} position={'relative'} justifyContent={'center'}>
+                        <Typography fontWeight={700} fontSize={'40px'} textAlign={'center'}>
+                            Don't Worry, Be <span style={{color:'#ba68c8'}}>Happy!</span>
+                        </Typography>
+                        <Box display={'flex'} justifyContent={'space-around'} paddingLeft={'600px'} pr={'600px'} >
+                        <Typography fontWeight={600} fontSize={'20px'} textAlign={'center'} mt={'20px'}> This Blog Site is Built by <span style={{color:'#9c27b0'}}>Gatsby</span></Typography>
+                        <StaticImage src="../images/icon.png" alt="" style={{position:'relative',right:'35px',top:'20px',width:'30px', height:'30px'}}></StaticImage>
+                                </Box>
+                    </Box>
                 </Box>
             </ThemeProvider>
         </Box>
