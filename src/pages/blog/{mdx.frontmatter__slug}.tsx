@@ -25,7 +25,7 @@ interface queryData {
 }
 
 const BlogPostTemplate:React.FC<PageProps<queryData>> = ({path, data,children}) => {
-    console.log(data.mdx.tableOfContents.items);
+    
 
     return (
     
