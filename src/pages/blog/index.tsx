@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { PageProps } from "gatsby";
 import React from "react";
-import Appbar from "../components/appbar";
+import Appbar from "../../components/appbar";
 const Blogs:React.FC<PageProps> = ({path}) => {
     
     return(

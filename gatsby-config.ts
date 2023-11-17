@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from "gatsby";
+import { resolve } from "path";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -23,7 +24,26 @@ const config: GatsbyConfig = {
       name:`blog`,
       path:`${__dirname}/content/blog`
     }
-  },'gatsby-plugin-mdx']
+  },{resolve:'gatsby-plugin-mdx',
+options:{
+    gatsbyRemarkPlugins:[
+      
+      '@jpfulton/gatsby-remark-copy-button',
+      'gatsby-remark-prismjs',
+    ]
+}},{
+    resolve:'gatsby-transformer-remark',
+    options:{
+      plugins:[
+        {
+          resolve:'gatsby-remark-prismjs',
+          options:{
+            classPrefix:'language-',
+
+          }
+        }
+      ]
+  }}],
 };
 
 export default config;
