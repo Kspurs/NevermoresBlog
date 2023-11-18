@@ -3,6 +3,7 @@ import React from "react";
 import theme from "./theme";
 import { StaticImage } from "gatsby-plugin-image";
 import PersonalCard from "./personalcard";
+import { navigate } from "gatsby";
 interface BlogcardProps{
     title:string;
     date:string;
@@ -33,7 +34,9 @@ const Blogcard:React.FC<BlogcardProps>=({title,date,description,tag,author})=>{
                         <Typography sx={{marginTop:'5px'}} variant="subtitle1" fontSize={'10px'} color={'gray'}>
                             {date}
                         </Typography>
-                        <Button variant="text" color="info" sx={{position:'relative', bottom:'10px'}}><Typography fontWeight={700} fontSize={'12px'}>Read more</Typography></Button>
+                        <Button variant="text" color="info" onClick={()=>{
+                            navigate('/blog/'+description);
+                        }} sx={{position:'relative', bottom:'10px'}}><Typography fontWeight={700} fontSize={'12px'}>Read more</Typography></Button>
                     </Box>
                 </Box>
             </ThemeProvider>

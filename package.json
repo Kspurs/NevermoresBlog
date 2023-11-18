@@ -22,6 +22,7 @@
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
     "gatsby": "^5.12.4",
+    "gatsby-plugin-algolia": "^1.0.3",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-mdx": "^5.12.3",
     "gatsby-plugin-sharp": "^5.12.3",
