@@ -14,7 +14,6 @@ const myQuery = `
         component
         path
         componentChunkName
-        jsonName
         internal {
           # querying internal.contentDigest is required
           contentDigest
