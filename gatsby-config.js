@@ -1,4 +1,3 @@
-import type { GatsbyConfig } from "gatsby";
 import { resolve } from "path";
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -28,6 +27,7 @@ const queries = [
     query: myQuery,
     queryVariables: {}, // optional. Allows you to use graphql query variables in the query
     indexName: 'nevermoreblog', // overrides main index name, optional
+    transformer: ({ data }) => data.pages.nodes, // optional
     settings: {
       // optional, any index settings
       // Note: by supplying settings, you will overwrite all existing settings on the index
@@ -35,7 +35,7 @@ const queries = [
     mergeSettings: false, // optional, defaults to false. See notes on mergeSettings below
   },
 ];
-const config: GatsbyConfig = {
+const config = {
   siteMetadata: {
     title: `nevermoresblog`,
     siteUrl: `https://www.yourdomain.tld`
