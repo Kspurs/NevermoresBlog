@@ -18,7 +18,6 @@ const myQuery = `
           # querying internal.contentDigest is required
           contentDigest
           type
-          owner
         }
       }
     }
@@ -28,7 +27,7 @@ const queries = [
   {
     query: myQuery,
     queryVariables: {}, // optional. Allows you to use graphql query variables in the query
-    indexName: 'index name to target', // overrides main index name, optional
+    indexName: 'nevermoreblog', // overrides main index name, optional
     settings: {
       // optional, any index settings
       // Note: by supplying settings, you will overwrite all existing settings on the index
