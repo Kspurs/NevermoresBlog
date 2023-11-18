@@ -69,7 +69,7 @@ const BlogPostTemplate:React.FC<PageProps<queryData>> = ({path, data,children}) 
                             <Link to={item.url} className='internalLink'>{item.title}</Link>
                           </Box>
                           {
-                            (item.items)&&item.items.map((item)=>(
+                            item.items.map((item)=>(
                               <Box key={item.title} sx={{mb:'10px',ml:'40px'}}>
                                 <Link to={item.url} className='internalLink'>{item.title}</Link>
                               </Box>

@@ -18,6 +18,7 @@ const theme = createTheme({
             "-apple-system, Roboto, sans-serif, serif"
         ].join(','),
         fontSize: 16,
-        }
+        },
+    
 });
 export default theme;
