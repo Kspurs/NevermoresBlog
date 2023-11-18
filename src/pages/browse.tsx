@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import exp from "constants";
 import { PageProps } from "gatsby";
 import React from "react";
 import Appbar from "../components/appbar";
@@ -11,7 +10,7 @@ import theme from "../components/theme";
 import { StaticImage } from "gatsby-plugin-image";
 import PersonalCard from "../components/personalcard";
 import Blogentry from "../components/blogentry";
-interface queryData {
+interface QueryData {
     allMdx: {
         nodes: {
             frontmatter: {
@@ -22,7 +21,7 @@ interface queryData {
         }[]
     }
 }
-const Browse: React.FC<PageProps<queryData>> = ({ path, data }) => {
+const Browse: React.FC<PageProps<QueryData>> = ({ path, data }) => {
     return (
         console.log(data),
         <Box>

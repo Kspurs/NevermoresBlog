@@ -3,9 +3,9 @@ import { Link, PageProps, graphql } from 'gatsby'
 import Appbar from '../../components/appbar'
 import { Avatar, Box, Paper, ThemeProvider, Typography } from '@mui/material'
 import { ComponentsWrapper } from '../../components/mdxcomponent'
-import { ThemeContext } from '@emotion/react'
+
 import theme from '../../components/theme'
-interface queryData {
+interface QueryData {
     mdx: {
         frontmatter: {
             title: string;
@@ -24,7 +24,7 @@ interface queryData {
     }
 }
 
-const BlogPostTemplate:React.FC<PageProps<queryData>> = ({path, data,children}) => {
+const BlogPostTemplate:React.FC<PageProps<QueryData>> = ({path, data,children}) => {
     
 
     return (
@@ -66,12 +66,12 @@ const BlogPostTemplate:React.FC<PageProps<queryData>> = ({path, data,children}) 
                       data.mdx.tableOfContents.items.map((item)=>(
                         <Box key={item.title}>
                           <Box marginBottom={'10px'}>
-                            <Link to={item.url} className='internalLink'>{item.title}</Link>
+                            <a href={item.url} className='internalLink'>{item.title}</a>
                           </Box>
                           {
                             item.items.map((item)=>(
                               <Box key={item.title} sx={{mb:'10px',ml:'40px'}}>
-                                <Link to={item.url} className='internalLink'>{item.title}</Link>
+                                <a href={item.url} className='internalLink'>{item.title}</a>
                               </Box>
                             ))
                           }
