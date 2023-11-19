@@ -35,7 +35,7 @@ const Blogcard:React.FC<BlogcardProps>=({title,date,description,tag,author})=>{
                             {date}
                         </Typography>
                         <Button variant="text" color="info" onClick={()=>{
-                            navigate('/blog/'+description);
+                            navigate('/blog/'+title.replace(/\s+/g, '-').toLowerCase());
                         }} sx={{position:'relative', bottom:'10px'}}><Typography fontWeight={700} fontSize={'12px'}>Read more</Typography></Button>
                     </Box>
                 </Box>

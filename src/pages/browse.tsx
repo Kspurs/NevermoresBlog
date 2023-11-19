@@ -11,15 +11,23 @@ import { StaticImage } from "gatsby-plugin-image";
 import PersonalCard from "../components/personalcard";
 import Blogentry from "../components/blogentry";
 interface QueryData {
-    allMdx: {
+    allContentfulBlogPost: {
         nodes: {
-            frontmatter: {
-                title: string;
-                date: string;
-                slug: string;
+            title: string;
+            location: {
+                lat: number;
+                lon: number;
+            }
+            description: string;
+            createDate: string;
+            blogBody: {
+                childMarkdownRemark: {
+                    html: string;
+                    tableOfContents: string;
+                }
             }
         }[]
-    }
+}
 }
 const Browse: React.FC<PageProps<QueryData>> = ({ path, data }) => {
     return (
@@ -36,8 +44,8 @@ const Browse: React.FC<PageProps<QueryData>> = ({ path, data }) => {
                         <Box display={'flex'} position={'relative'} top={'40px'} justifyContent={"space-around"} paddingLeft={'150px'} paddingRight={'150px'}>
 
                             {
-                                data.allMdx.nodes.slice(0,2).map((item) => (
-                                    <Hovercard key={item.frontmatter.title} title={item.frontmatter.title} date={item.frontmatter.date} description={item.frontmatter.slug} tag={['Python', 'CPP']} author="Nevermore"></Hovercard>))}
+                                data.allContentfulBlogPost.nodes.slice(0,2).map((item) => (
+                                    <Hovercard key={item.title} title={item.title} date={item.createDate} description={item.description} tag={['Python', 'CPP']} author="Nevermore"></Hovercard>))}
                         
                                     </Box>
                     </Box>
@@ -47,10 +55,10 @@ const Browse: React.FC<PageProps<QueryData>> = ({ path, data }) => {
                         <Typography fontWeight={700} marginBottom={'20px'}>Latest Posts</Typography>
                     
                             {
-                                data.allMdx.nodes.slice(0,2).map((item) => (
-                                <Box key={item.frontmatter.title} marginTop={'10px'}>
+                                data.allContentfulBlogPost.nodes.slice(0,2).map((item) => (
+                                <Box key={item.title} marginTop={'10px'}>
                                     
-                                        <Blogentry title={item.frontmatter.title} date={item.frontmatter.date} description={item.frontmatter.slug} tag={['Python', 'CPP']} author="Nevermore"></Blogentry>
+                                        <Blogentry title={item.title} date={item.createDate} description={item.description} tag={['Python', 'CPP']} author="Nevermore"></Blogentry>
                                         <Divider></Divider>
                                 </Box>
                                     )
@@ -79,16 +87,19 @@ const Browse: React.FC<PageProps<QueryData>> = ({ path, data }) => {
 }
 export const query = graphql`
   query {
-    allMdx(sort: { frontmatter: { date: DESC }}) {
-      nodes {
-        frontmatter {
-          date(formatString: "MMMM D, YYYY")
-          title
-          slug
+    allContentfulBlogPost(sort: {createDate: DESC}) {
+        nodes {
+        title
+        description
+        createDate( formatString: "MMMM DD, YYYY")
+        blogBody {
+          childMarkdownRemark {
+            html
+            tableOfContents
+          }
         }
-        id
-        excerpt
       }
     }
-  }`
+    }
+`
 export default Browse;
