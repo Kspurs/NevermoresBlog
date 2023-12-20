@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { AppBar, Toolbar, Typography, TextField, Box, Button, Paper, Dialog, Divider, SvgIcon } from '@mui/material';
+import { Link,AppBar, Toolbar, Typography, TextField, Box, Button, Paper, Dialog, Divider, SvgIcon } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import theme from '../components/theme';
 import { blue } from '@mui/material/colors';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Link, navigate } from 'gatsby';
+import { navigate } from 'gatsby';
 import SearchIcon from '@mui/icons-material/Search';
 import then from 'lodash'
 interface AppbarProps {
@@ -74,7 +74,7 @@ const Appbar:React.FC<AppbarProps>= ({location}) => {
                             <Box sx={{width:'500px',height:'55vh',overflowY:'scroll',marginTop:'10px',mb:'10px'}}>
                                 {searchResult.map((result)=>(
                                     <Box key={result.fields.title['en-US']} sx={{height:'50px',backgroundColor:'#2196f3',borderRadius:4,pl:'10px',pt:'20px'}}>
-                                       <Typography color={'#ffffff'}>{result.fields.title['en-US']}</Typography>
+                                       <Typography color={'#ffffff'} sx={{}}><Link style={{color:'#ffffff',textDecoration:'none',fontSize:'20px'}} href={'/blog/'+result.fields.title['en-US'].replace(/\s+/g, '-').toLowerCase()}>{result.fields.title['en-US'].replace(/\s+/g, '-').toLowerCase()}</Link></Typography>
                                     </Box>
                                 ))}
                             </Box>

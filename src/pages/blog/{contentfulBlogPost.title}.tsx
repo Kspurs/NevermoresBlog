@@ -113,7 +113,7 @@ export const query = graphql`
     contentfulBlogPost(id: {eq: $id}) {
         title
         description
-        createDate
+        createDate (formatString: "MMMM DD, YYYY")
         blogBody {
           childMarkdownRemark {
             html
