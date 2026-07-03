@@ -4,8 +4,8 @@ import * as styles from "./for-yeling.module.css"
 
 const getDaysTogether = () => {
   const now = new Date()
-  // 这里默认从今年 3 月 5 日开始计算；如需指定年份，修改第一个参数即可。
-  const start = Date.UTC(now.getFullYear(), 2, 5)
+  // 这里默认从今年 2 月 3 日开始计算；如需指定年份，修改第一个参数即可。
+  const start = Date.UTC(now.getFullYear(), 1, 3)
   const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())
   return Math.max(0, Math.floor((today - start) / 86_400_000))
 }
