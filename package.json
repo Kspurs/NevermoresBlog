@@ -2,16 +2,19 @@
   "name": "nevermoresblog",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20 <21"
+  },
   "description": "nevermoresblog",
   "keywords": [
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
+    "develop": "node scripts/run-gatsby.cjs develop",
+    "start": "node scripts/run-gatsby.cjs develop",
+    "build": "node scripts/run-gatsby.cjs build",
+    "serve": "node scripts/run-gatsby.cjs serve",
+    "clean": "node scripts/run-gatsby.cjs clean",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
